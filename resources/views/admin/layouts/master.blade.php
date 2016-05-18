@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<title>@yield('title')</title>
+	<!-- Bootstrap Core CSS -->
+    <link href="<?= asset('public/css/bootstrap/bootstrap.min.css') ?>" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="<?= asset('public/css/admin/metisMenu/metisMenu.min.css') ?>" rel="stylesheet">
+
+    <!-- DataTables CSS -->
+    <link href="<?= asset('public/css/datatables/dataTables.bootstrap.css') ?>" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="<?= asset('public/css/admin/timeline.css')?>" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="<?= asset('public/css/admin/sb-admin-2.css')?>" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="<?= asset('public/css/font-awesome/font-awesome.min.css') ?>" rel="stylesheet" type="text/css">
+
+	<!-- jQuery -->
+    <script src="<?= asset('public/js/jquery/jquery.min.js') ?>"></script>
+</head>
+<body>
+	<div id="wrapper">
+        <!-- Navigation -->
+        @include('admin.sidebar')
+
+        <div id="page-wrapper">
+        @yield('content')
+        @yield('javascript')
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="<?= asset('public/js/bootstrap/bootstrap.min.js') ?>"></script>
+
+    <!-- DataTables JavaScript -->
+    <script src="<?= asset('public/js/datatables/jquery.dataTables.min.js') ?>"></script>
+
+    <script src="<?= asset('public/js/datatables/dataTables.bootstrap.min.js') ?>"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="<?= asset('public/js/admin/metisMenu/metisMenu.min.js') ?>"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="<?= asset('public/js/admin/sb-admin-2.js') ?>"></script>
+    
+</body>
+</html>
