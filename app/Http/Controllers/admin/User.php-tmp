@@ -13,7 +13,7 @@ class User extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index() {
-		return view('admin.user');
+		return view('admin.users.user');
 	}
 
 	/**
@@ -22,7 +22,7 @@ class User extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function create() {
-		return view('admin.addUser');
+		return view('admin.users.addUser');
 	}
 
 	/**

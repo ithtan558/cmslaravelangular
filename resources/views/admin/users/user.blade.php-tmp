@@ -3,7 +3,7 @@
 @section('content')
 	<div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Tables</h1>
+            <h1 class="page-header">List user</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -440,4 +440,13 @@
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
+@endsection
+@section('javascript')
+	<script type="text/javascript">
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+            responsive: true
+        });
+    });
+    </script>
 @endsection

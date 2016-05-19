@@ -16,7 +16,7 @@ class User extends Controller
      */
     public function index()
     {
-        return view('admin.user');
+        return view('admin.users.user');
     }
 
     /**
@@ -26,7 +26,7 @@ class User extends Controller
      */
     public function create()
     {
-        return view('admin.addUser');
+        return view('admin.users.addUser');
     }
 
     /**
