@@ -352,3 +352,11 @@ table.dataTable thead .sorting:after {
 .panel-yellow a:hover {
     color: #df8a13;
 }
+
+/* All css added */
+.required-field {
+    display: inline;
+    font-size: 18px;
+    line-height: 12px;
+    color: #f45858;
+}

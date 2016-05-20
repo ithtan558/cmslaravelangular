@@ -8,7 +8,7 @@
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
-    <div class="row">
+    <div class="row" ng-controller="UsersController">
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -441,7 +441,7 @@
     </div>
     <!-- /.row -->
 @endsection
-@section('javascript')
+@section('javascriptDown')
 	<script type="text/javascript">
     $(document).ready(function() {
         $('#dataTables-example').DataTable({

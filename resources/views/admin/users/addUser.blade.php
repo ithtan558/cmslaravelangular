@@ -1,5 +1,9 @@
 @extends('admin.layouts.master')
 @section('title', 'SB Admin 2 - Bootstrap Admin Theme')
+@section('javascriptUp')
+    <!-- App js angular Core JavaScript -->
+    <script src="<?= asset('public/app/controllers/users.js') ?>"></script>
+@endsection
 @section('content')
     <div class="row">
         <div class="col-lg-12">
@@ -9,44 +13,47 @@
     </div>
     <!-- /.row -->
     <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Here's user's information
-                        </div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <form role="form" name="frmEmployees" novalidate="">
-                                        <div class="form-group">
-                                            <label>Full name</label>
-                                            <input class="form-control" placeholder="Type your full name" ng-required="true">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Email</label>
-                                            <input class="form-control" placeholder="Type your email" type="email">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Password</label>
-                                            <input class="form-control" placeholder="Type your password">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Avatar</label>
-                                            <input type="file">
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">Save</button>
-                                        <button type="reset" class="btn btn-default">Reset</button>
-                                    </form>
-                                </div>
-                                <!-- /.col-lg-6 (nested) -->
-                            </div>
-                            <!-- /.row (nested) -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Here's user's information
                 </div>
-                <!-- /.col-lg-12 -->
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <form name="frmAddUser" novalidate="">
+                                <div class="form-group" ng-class="{ 'has-error': frmAddUser.fullname.$dirty && frmAddUser.fullname.$error.required}">
+                                    <label>Full name</label><span class="required-field">*</span>
+                                    <input class="form-control" placeholder="Type your full name" ng-required="true" name="fullname" id="fullname" ng-model="user.fullname">
+                                    <span ng-show="frmAddUser.fullname.$invalid && frmAddUser.fullname.$dirty && frmAddUser.fullname.$error.required" class="help-block">Full name is required</span>
+                                </div>
+                                <div class="form-group" ng-class="{ 'has-error': frmAddUser.email.$dirty && frmAddUser.email.$error.required}">
+                                    <label>Email</label><span class="required-field">*</span>
+                                    <input class="form-control" placeholder="Type your email" ng-required="true" type="email" name="email" id="email" ng-model="user.email">
+                                    <span ng-show="frmAddUser.email.$dirty && frmAddUser.email.$error.required" class="help-block">Email is required</span>
+                                </div>
+                                <div class="form-group" ng-class="{ 'has-error': frmAddUser.password.$dirty && frmAddUser.password.$error.required}">
+                                    <label>Password</label><span class="required-field">*</span>
+                                    <input class="form-control" placeholder="Type your password" ng-required="true" name="password" id="password" ng-model="user.password">
+                                    <span ng-show="frmAddUser.password.$dirty && frmAddUser.password.$error.required" class="help-block">Email is required</span>
+                                </div>
+                                <div class="form-group">
+                                    <label>Avatar</label>
+                                    <input type="file">
+                                </div>
+                                <button type="submit" class="btn btn-primary" ng-click="save(id)" ng-disabled="frmAddUser.$invalid">Save</button>
+                                <button type="reset" class="btn btn-default">Reset</button>
+                            </form>
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                    </div>
+                    <!-- /.row (nested) -->
+                </div>
+                <!-- /.panel-body -->
             </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
     <!-- /.row -->
 @endsection

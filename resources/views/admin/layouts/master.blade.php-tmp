@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="adminModule">
 <head>
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,6 +27,11 @@
 
 	<!-- jQuery -->
     <script src="<?=asset('public/js/jquery/jquery.min.js')?>"></script>
+    <!-- Angular Core JavaScript -->
+    <script src="<?=asset('public/app/lib/angular.min.js')?>"></script>
+
+    <!-- App js angular Core JavaScript -->
+    <script src="<?=asset('public/app/app.js')?>"></script>
 </head>
 <body>
 	<div id="wrapper">
@@ -34,8 +39,9 @@
         @include('admin.sidebar')
 
         <div id="page-wrapper">
+        @yield('javascriptUp')
         @yield('content')
-        @yield('javascript')
+        @yield('javascriptDown')
         </div>
         <!-- /#page-wrapper -->
 
