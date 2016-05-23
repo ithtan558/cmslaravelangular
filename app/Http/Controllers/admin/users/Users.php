@@ -1,14 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\admin\users;
 
+use App\user;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class User extends Controller
+class Users extends Controller
 {
+    public $dataPasstoView = array();
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +18,9 @@ class User extends Controller
      */
     public function index()
     {
-        return view('admin.users.user');
+        $listUsers = User::orderBy('id', 'asc')->get();
+        $dataPasstoView['listUsers'] = $listUsers;
+        return view('admin.users.user', $dataPasstoView);
     }
 
     /**
@@ -37,7 +41,22 @@ class User extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User;
+        $email = $request->input('email');
+        // Check user exists by Email
+        if($user::where('email', $email)->get()->count() == 1) {
+            $result = 0;
+            $data = 'Email exists.';
+        }
+        else {
+            $user->name = $request->input('fullname');
+            $user->email = $request->input('email');
+            $user->password = bcrypt($request->input('password'));
+            $user->save();
+            $result = 1;
+            $data = 'User record successfully created with id '. $user->id;
+        }
+        echo json_encode(array('result' => $result, 'data' => $data));
     }
 
     /**
@@ -48,7 +67,6 @@ class User extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**
@@ -59,7 +77,9 @@ class User extends Controller
      */
     public function edit($id)
     {
-        //
+        $getUser = User::find($id)->first();
+        $dataPasstoView['getUser'] = $getUser;
+        return view('admin.users.editUser', $dataPasstoView);
     }
 
     /**

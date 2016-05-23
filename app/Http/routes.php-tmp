@@ -14,11 +14,15 @@
 define('TYPE_END_URL', '.html');
 /* End define all variable gobal for website */
 
-Route::get('/', 'admin/users/Users@index');
+Route::get('/', 'admin\users\Users@index');
 /* Router for module user */
 Route::get('add-user'.TYPE_END_URL.'', [
 		'as'   => 'add_user',
-		'uses' => 'admin\Users@create'
+		'uses' => 'admin\users\Users@create'
 	]);
-Route::post('/users/api/create', 'Users@store');
+Route::get('edit-user/{id}'.TYPE_END_URL.'', [
+		'as'   => 'edit_user',
+		'uses' => 'admin\users\Users@edit'
+	]);
+Route::post('/users/api/create', 'admin\users\Users@store');
 /*End router for module user */
