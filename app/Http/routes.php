@@ -26,3 +26,6 @@ Route::get('edit-user/{id}'.TYPE_END_URL.'', [
 ]);
 Route::post('/users/api/create', 'admin\users\Users@store');
 /*End router for module user */
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
